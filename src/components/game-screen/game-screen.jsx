@@ -5,10 +5,18 @@ import {GameType} from '../../const';
 import ArtistQuestionScreen from '../artist-question-screen/artist-question-screen';
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen';
 
+import withAudioPlayer from "../../hocs/with-audio-player/with-audio-player";
+
+const GenreQuestionScreenWrapped = withAudioPlayer(GenreQuestionScreen);
+const ArtistQuestionScreenWrapped = withAudioPlayer(ArtistQuestionScreen);
+
 class GameScreen extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {step: 0};
+
+    this.state = {
+      step: 0,
+    };
   }
 
   render() {
@@ -25,7 +33,7 @@ class GameScreen extends PureComponent {
     switch (question.type) {
       case GameType.ARTIST:
         return (
-          <ArtistQuestionScreen
+          <ArtistQuestionScreenWrapped
             question={question}
             onAnswer={() => {
               this.setState((prevState) => ({
@@ -36,7 +44,7 @@ class GameScreen extends PureComponent {
         );
       case GameType.GENRE:
         return (
-          <GenreQuestionScreen
+          <GenreQuestionScreenWrapped
             question={question}
             onAnswer={() => {
               this.setState((prevState) => ({
@@ -53,7 +61,7 @@ class GameScreen extends PureComponent {
 }
 
 GameScreen.propTypes = {
-  questions: PropTypes.array.isRequired
+  questions: PropTypes.array.isRequired,
 };
 
 export default GameScreen;

@@ -1,4 +1,4 @@
-const AVATAR_URL = `https://api.adorable.io/avatars/128`;
+const AVATAR_URL = `https://avatars.dicebear.com/api/human`;
 
 export default [
   {
@@ -31,15 +31,15 @@ export default [
     },
     answers: [
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/${Math.random()}.svg`,
         artist: `Tyrion Lannister`,
       },
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/${Math.random()}.svg`,
         artist: `Finlandia`,
       },
       {
-        picture: `${AVATAR_URL}/${Math.random()}`,
+        picture: `${AVATAR_URL}/${Math.random()}.svg`,
         artist: `Jim Beam`,
       }
     ],
